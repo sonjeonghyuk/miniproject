@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -24,6 +25,10 @@ public class MemoService {
         MemoResponseDto memoResponseDto = new MemoResponseDto(memo);
 
         return memoResponseDto;
+    }
+
+    public List<MemoResponseDto> getMemo(LocalDate date) {
+        return memoRepository.findByDate(date).stream().map(MemoResponseDto::new).toList();
     }
 
     public List<MemoResponseDto> getMemos() {
@@ -50,5 +55,6 @@ public class MemoService {
                 () -> new IllegalArgumentException("선택한 메모는 존재하지 않습니다")
         );
     }
+
 
 }

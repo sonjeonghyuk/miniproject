@@ -7,7 +7,10 @@ import com.sparta.miniproject.service.MemoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/api")
@@ -19,6 +22,11 @@ public class MemoController {
     @PostMapping("/memo")
     public MemoResponseDto createMemo(@RequestBody MemoRequestDto requestDto) {
         return memoService.createMemo(requestDto);
+    }
+
+    @GetMapping("/memo/{date}")
+    public List<MemoResponseDto> getMemo(@PathVariable LocalDate date) {
+        return memoService.getMemo(date);
     }
 
     @GetMapping("/memo")
