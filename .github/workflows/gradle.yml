@@ -36,3 +36,5 @@ jobs:
       run: chmod +x gradlew
     - name: Add execute permission to gradlew
       run: chmod +x /home/runner/work/miniproject/miniproject/gradlew
+    - name: Build with Gradle
+      run: /home/runner/work/miniproject/miniproject/gradlew clean build
