@@ -33,7 +33,7 @@ jobs:
       with:
         arguments: build
     - name: Grant execute permisson for gradlew # gradlew 실행 권한 부여
-      run: chmod +x gradlew
+      run: chmod +x /home/runner/work/miniproject/miniproject/gradlew
     - name: Add execute permission to gradlew
       run: chmod +x /home/runner/work/miniproject/miniproject/gradlew
     - name: Build with Gradle
